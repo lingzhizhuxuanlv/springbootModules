@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!--mybatis-generator-maven-plugin生成数据库实体的配置文件-->
+<generatorConfiguration>
+    <!-- 数据库驱动-->
+    <classPathEntry location="C:\Users\lenovo\.m2\repository\mysql\mysql-connector-java\5.1.30\mysql-connector-java-5.1.30.jar"/>
+
+    <context id="mysql" targetRuntime="MyBatis3">
+
+        <commentGenerator>
+            <!-- 是否去除自动生成的时间标志 true：是 false：否 -->
+            <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 false：否 -->
+            <property name="suppressAllComments" value="true"/>
+            <!-- 生成的Java文件的编码 -->
+            <property name="javaFileEncoding" value="UTF-8"/>
+            <!-- 格式化java代码 -->
+            <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
+            <!-- 格式化XML代码 -->
+            <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+        </commentGenerator>
+
+        <!--数据库链接URL 用户名 密码 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/springboot"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <!-- 用来处理NUMERIC和DECIMAL类型的策略 -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- 生成模型的包名和位置-->
+        <javaModelGenerator targetPackage="com.shawnchan.springboot.model" targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 生成映射文件的包名和位置-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!-- 生成DAO的包名和位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.shawnchan.springboot.dao" targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名，这里举例，只配置了一个table，你可以配置多个-->
+        <table tableName="ip_tables" domainObjectName="ipTables"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+
+    </context>
+
+</generatorConfiguration>

@@ -1,0 +1,57 @@
+#tomcat
+server:
+  port: 8081
+  servlet:
+    context-path: /springboot-web
+    session:
+      timeout: 1800s
+
+#spring
+spring:
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+  datasource:
+    url: jdbc:mysql://localhost:3306/springboot?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  freemarker:
+    settings:
+      locale: zh_CN
+      date_format: yyyy-MM-dd
+      time_format: HH:mm:ss
+      datetime_format: yyyy-MM-dd HH:mm:ss
+      number_format: 0.##
+      template_exception_handler: ignore
+
+#上传路径
+upload:
+  w-upload: C:/upload
+  l-upload: /home/upload
+
+#下载路径
+download: /file
+
+#mybatis
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.shawnchan.core.model
+
+#logback
+logging:
+  path: C:/logs
+  level:
+    com.shawnchan.core.dao: debug
