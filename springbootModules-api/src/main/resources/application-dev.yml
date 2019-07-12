@@ -1,0 +1,49 @@
+#tomcat
+server:
+  port: 8080
+  servlet:
+    context-path: /springboot-api
+    session:
+      timeout: 1800s
+
+#spring
+spring:
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+  datasource:
+    url: jdbc:mysql://localhost:3306/springboot?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+#upload
+upload:
+  w-upload: C:/upload
+  l-upload: /home/upload
+
+#download
+download: /file
+
+#mybatis
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.lingzhizhuxuanlv.springbootModules.core.model
+
+#logback
+logging:
+  path: C:/logs
+  level:
+    com.lingzhizhuxuanlv.springbootModules.core.dao: debug

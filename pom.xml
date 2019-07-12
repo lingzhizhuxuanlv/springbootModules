@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.shawnchan</groupId>
+    <groupId>com.lingzhizhuxuanlv</groupId>
     <artifactId>springbootModules</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
@@ -16,16 +16,18 @@
     </parent>
 
     <modules>
-        <module>springboot-api</module>
-        <module>springboot-app</module>
-        <module>springboot-core</module>
-        <module>springboot-web</module>
+        <module>springbootModules-api</module>
+        <module>springbootModules-app</module>
+        <module>springbootModules-core</module>
+        <module>springbootModules-web</module>
     </modules>
 
     <properties>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
